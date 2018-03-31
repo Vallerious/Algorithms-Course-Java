@@ -6,22 +6,22 @@ import javax.swing.text.Highlighter.Highlight;
 
 public class InsertionSort {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner s = new Scanner(System.in);
-		String[] input = s.nextLine().split(" ");
-		int[] numbers = new int[input.length];
-		
-		for (int i = 0; i < numbers.length; i++) {
-			numbers[i] = Integer.parseInt(input[i]);
-		}
-		
-		quickSort(numbers, 0, numbers.length - 1);
-		
-		for (int i = 0; i < numbers.length; i++) {
-			System.out.print(numbers[i] + " ");
-		}
-	}
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//		Scanner s = new Scanner(System.in);
+//		String[] input = s.nextLine().split(" ");
+//		int[] numbers = new int[input.length];
+//		
+//		for (int i = 0; i < numbers.length; i++) {
+//			numbers[i] = Integer.parseInt(input[i]);
+//		}
+//		
+//		quickSort(numbers, 0, numbers.length - 1);
+//		
+//		for (int i = 0; i < numbers.length; i++) {
+//			System.out.print(numbers[i] + " ");
+//		}
+//	}
 	
 	public static void insertionSort(int[] arr) {
 		for (int i = 1; i < arr.length; i++) {
