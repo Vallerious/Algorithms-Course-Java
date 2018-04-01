@@ -2,14 +2,12 @@ package solving;
 
 public class CombinationsWithRep {
 
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-//		int n = 3;
-//		int[] result = new int[n];
-//		
-//		generateCombinationsWithoutRepetition(result, 0, 1, 5);
-//		
-//	}
+	public static void main(String[] args) {
+		int n = 3;
+		int[] result = new int[n];
+		
+		generateCombinationsWithoutRepetition(result, 0, 1, 3);
+	}
 	
 	public static void generateCombinationsWithoutRepetition(int[] arr, int idx, int currNumber, int choiceCount) {
 		if (arr.length <= idx) {
