@@ -5,9 +5,9 @@ public class SumCoins {
   public static int coinsTaken = 0;
   static int[][] coinsInfo = new int[coins.length][2];
   
-  public static void main(String[] args) {
-    SumCoins.printCoins(SumCoins.getCoins(11));
-  }
+//  public static void main(String[] args) {
+//    SumCoins.printCoins(SumCoins.getCoins(11));
+//  }
   
   public static int[][] getCoins(int sum) {
     int idx = 0;
