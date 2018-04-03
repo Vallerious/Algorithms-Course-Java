@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class FractionalKnapsack {
 
-  public static void main(String[] args) {
+  public static void maina(String[] args) {
     // TODO Auto-generated method stub
     double capacity = 134;
     int itemCount = 9;
