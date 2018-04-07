@@ -3,7 +3,7 @@ package combinations;
 import java.util.HashSet;
 
 public class PermutationsWithRepetition {
-  static int[] elements = {1, 2, 2};
+  static int[] elements = {1, 2, 3};
 
   public static void generate(int index) {
     if (index >= elements.length) {

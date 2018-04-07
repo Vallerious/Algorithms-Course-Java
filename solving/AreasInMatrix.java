@@ -10,7 +10,7 @@ public class AreasInMatrix {
 	
 	public static Map<Integer, Integer> sizeMap = new HashMap<>();
 
-	public static void main(String[] args) {
+	public static void mains(String[] args) {
 		// TODO Auto-generated method stub
 		char[][] matrix = {
 				{'*', '-', '-', '*', '-', '-', '-', '*', '-', '-'},
