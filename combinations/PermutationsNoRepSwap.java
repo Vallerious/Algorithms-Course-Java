@@ -1,7 +1,7 @@
 package combinations;
 
 public class PermutationsNoRepSwap {
-  static int[] elements = {1, 2, 3};
+  static int[] elements = {-1, 1, 0, -1, 1, 0, -1, 1, 0, -1, 0, 0, 1, -1};
 
   public static void generate(int index) {
     if (index >= elements.length) {

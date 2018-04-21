@@ -1,7 +1,7 @@
 package combinations;
 
 public class VariationsWithRepetition {
-  static int[] elements = {1, 2, 3};
+  static int[] elements = {0, 1, 2, 3, 4, 5};
   static boolean[] used = new boolean[elements.length];
   static int n = 3;
   static int[] variations = new int[n];
