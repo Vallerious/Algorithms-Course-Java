@@ -6,7 +6,7 @@ public class CombinationsWithRep {
 		int n = 3;
 		int[] result = new int[n];
 		
-		generateCombinationsWithoutRepetition(result, 0, 1, 3);
+		generateCombinationsWithoutRepetition(result, 0, 0, 3);
 	}
 	
 	public static void generateCombinationsWithoutRepetition(int[] arr, int idx, int currNumber, int choiceCount) {

@@ -7,7 +7,7 @@ public class EdmondsKarp {
 	private static int[][] graph;
 	private static int[] parents;
 	public static void main(String[] args) {
-		var graph = new int[][]
+		graph = new int[][]
         {
                 new int[] { 0, 10, 10, 0, 0, 0 },
                 new int[] { 0, 0, 2, 4, 8, 0},

@@ -3,10 +3,10 @@ package solving;
 public class CombinationsWithoutRepetition {
 
 	public static void main(String[] args) {
-		int n = 3;
+		int n = 2;
 		int[] numbers = new int[n];
 		
-		generateCombinationsWithoutRep(numbers, 0, 0, 5);
+		generateCombinationsWithoutRep(numbers, 0, 0, 2);
 	}
 	
 	public static void generateCombinationsWithoutRep(int[] nums, int idx, int start, int choiceCount) {

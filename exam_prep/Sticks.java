@@ -1,31 +1,19 @@
-package graphs;
+package exam_prep;
 
-import java.awt.List;
-import java.security.KeyStore.Entry;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.SortedSet;
 import java.util.Stack;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
-public class SourceRemovalTopologicalSorting {
+public class Sticks {
   static boolean[] visited;
-  public static void main(String[] args) {
-    java.util.List<Integer> resultMap = Arrays.asList(5, 7, 8, 11, 9, 3, 2, 10);
+  static int sticksCount;
+  static ArrayList<Integer[]> graph;
 
-    ArrayList<Integer[]> graph = new ArrayList<>();
-    
-    graph.add(new Integer[] {2});
-    graph.add(new Integer[] {0, 3});
-    graph.add(new Integer[] {});
-    graph.add(new Integer[] {2});
+  public static void main(String[] args) {
+    takeInput();
 
     visited = new boolean[graph.size()];
     TreeMap<Integer, Integer> depenCount = getDependenciesCount(graph);
@@ -43,8 +31,48 @@ public class SourceRemovalTopologicalSorting {
       depenCount = getDependenciesCount(graph);
     }
     
+    if (sorted.size() < sticksCount) {
+      System.out.println("Cannot lift all sticks");
+    }
+    
     for (Integer node : sorted) {
-      System.out.print(resultMap.get(node) + " ");
+      System.out.print(node + " ");
+    }
+  }
+  
+  static void takeInput() {
+    Scanner scanner = new Scanner(System.in);
+    Map<Integer, ArrayList<Integer>> tempGraph = new TreeMap<>();
+    
+    sticksCount = Integer.parseInt(scanner.nextLine());
+    int p = Integer.parseInt(scanner.nextLine());
+    graph = new ArrayList<>(sticksCount);
+    for (int i = 0; i < p; i++) {
+      int[] nodeBond = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+      
+      if (!tempGraph.containsKey(nodeBond[0])) {
+        tempGraph.put(nodeBond[0], new ArrayList<>());
+      }
+      
+      tempGraph.get(nodeBond[0]).add(nodeBond[1]);
+    }
+    
+    for (int i = 0; i < sticksCount; i++) {
+      ArrayList<Integer> currentList;
+      
+      if (tempGraph.containsKey(i)) {
+        currentList = tempGraph.get(i);
+      } else {
+        currentList = new ArrayList<>();
+      }
+      
+      Integer[] currentConnectionArray = new Integer[currentList.size()];
+      
+      for (int j = 0; j < currentConnectionArray.length; j++) {
+        currentConnectionArray[j] = currentList.get(j);
+      }
+      
+      graph.add(currentConnectionArray);
     }
   }
   
@@ -93,5 +121,4 @@ public class SourceRemovalTopologicalSorting {
     
     return dependenciesCountMap;
   }
-
 }

@@ -1,15 +1,27 @@
 package dynamic_programming;
 
+import java.util.Scanner;
+
 public class RodCutting {
-  static int[] prices = {0, 1, 5, 8, 9, 10, 17};
-  static int len = 4;
-  static int[] bestPrices = new int[prices.length];
+  
+  static int[] bestPrices;
+  static int[] prices;
+  static int[] bestCombo;
 
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
+    Scanner scanner = new Scanner(System.in);
+    String[] strings = scanner.nextLine().split(" ");
+    prices = new int[strings.length];
+    bestPrices = new int[strings.length];
+    bestCombo = new int[strings.length];
+    int len = Integer.parseInt(scanner.nextLine());
+    for (int i = 0; i < prices.length; i++) {
+      prices[i] = Integer.parseInt(strings[i]);
+    }
     
     cutRod(len);
     System.out.println(bestPrices[len]);
+    reconstruct(len);
   }
   
   public static int cutRod(int n) {
@@ -23,10 +35,20 @@ public class RodCutting {
       
       if (currentBest > bestPrices[n]) {
         bestPrices[n] = currentBest;
+        bestCombo[n] = i;
       }
     }
     
     return bestPrices[n];
+  }
+  
+  private static void reconstruct(int n ) {
+    while (n - bestCombo[n] != 0) {
+      System.out.print(bestCombo[n] + " ");
+      n = n - bestCombo[n];
+    }
+    
+    System.out.println(bestCombo[n]);
   }
 
 }
