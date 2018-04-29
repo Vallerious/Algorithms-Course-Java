@@ -1,72 +1,43 @@
 package combinations;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class SequencesOfLimitedSum {
-  static int n;
-  static Set<String> results = new TreeSet<>();
+  static StringBuilder output = new StringBuilder(100);
   
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    n = Integer.parseInt(scanner.nextLine());
-    int[] result = new int[n];
-
-    generateCombinationsWithoutRepetition(result, 0, 0, n);
+    int n = Integer.parseInt(scanner.nextLine());
+    List<Integer> numbers = new ArrayList<>();
     
-    for (String i : results) {
-      System.out.println(i);
-    }
+    generateVariations(numbers, 0, n);
+    
+    System.out.println(output);
   }
 
-  public static void generateCombinationsWithoutRepetition(int[] arr, int idx, int currNumber, int choiceCount) {
-    if (arr.length <= idx) {
-      int sum = sum(arr);
-      
-      if (sum <= n) {
-        String arrStr = arrToString(arr);
-        
-        if (arrStr.length() > 0) {
-          results.add(arrToString(arr));          
-        }
-      }
-      return;
-    }
-
-    for (int i = currNumber; i <= choiceCount; i++) {
-      arr[idx] = i;
-      generateCombinationsWithoutRepetition(arr, idx + 1, i, choiceCount);
-    }
-  }
-
-  public static void print(int[] arr) {
-    for (int i = 0; i < arr.length; i++) {
-      System.out.print(arr[i] + " ");
-    }
-    System.out.println();
-  }
-  
-  static int sum(int[] arr) {
-    int sum = 0;
-    
-    for (int i = 0; i < arr.length; i++) {
-      sum += arr[i];
-    }
-    
-    return sum;
-  }
-  
-  static String arrToString(int[] arr) {
-    StringBuilder stringBuilder = new StringBuilder(arr.length);
-    
-    for (int i = 0; i < arr.length; i++) {
-      if (arr[i] != 0) {
-        stringBuilder.append(arr[i] + " ");
+  private static void generateVariations(List<Integer> numbers, int sum, int max) {
+    for (int i = 1; i <= max; i++) {
+      if (sum + i <= max) {
+        numbers.add(i);
+        output.append(concatListOfInt(numbers) + "\n");
+        generateVariations(numbers, sum + i, max);
+        numbers.remove(numbers.size() - 1);
+      } else {
+        break;
       }
     }
+  }
+  
+  private static String concatListOfInt(List<Integer> list) {
+    StringBuilder sBuilder = new StringBuilder(list.size());
     
-    return stringBuilder.toString().trim();
+    for (int i = 0; i < list.size(); i++) {
+      sBuilder.append(list.get(i) + " ");
+    }
+    
+    return sBuilder.toString();
   }
 
 }
