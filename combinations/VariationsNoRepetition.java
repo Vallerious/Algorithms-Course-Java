@@ -1,9 +1,9 @@
 package combinations;
 
 public class VariationsNoRepetition {
-  static int[] elements = {0, 1, 2, 3, 4, 5};
+  static int[] elements = {1, 1, 1, 2, 2, 2};
   static boolean[] used = new boolean[elements.length];
-  static int n = 3;
+  static int n = 6;
   static int[] variations = new int[n];
   
   public static void generate(int index) {

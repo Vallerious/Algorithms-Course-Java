@@ -38,7 +38,12 @@ public class Bridges {
       }
     }
     
-    System.out.println(bridgesCount + (bridgesCount == 1 ? " bridge" : " bridges") + " found");
+    if (bridgesCount == 0) {
+      System.out.println("No bridges found");
+    } else {
+      System.out.println(bridgesCount + (bridgesCount == 1 ? " bridge" : " bridges") + " found");      
+    }
+    
     
     StringBuilder sBuilder = new StringBuilder(len);
     
